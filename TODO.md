@@ -5,4 +5,5 @@
 * Publish **which is somehow burocratic**
 
 # New features
-* Register macros
+* Save past commands as a macro
+* Config for loading .bashrc to access aliases an env vars (currently it only loads /bin/bash)
