@@ -17,7 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
 				const text = activeTextEditor.document.getText();
 
 				if (command !== undefined) {
-					const commandString = command.replace('$TXT', `"${text}"`);
+					const commandString = command.replace('$TXT',`<<EOF\n${text}\nEOF`);
 
 					exec(commandString, (error, stdout, stderr) => {
 						if (error) {
@@ -64,7 +64,7 @@ export function activate(context: vscode.ExtensionContext) {
 				selections.forEach(selection => {
 					const text = activeTextEditor.document.getText(selection);
 
-					const commandString = command.replace('$TXT', `"${text}"`);
+					const commandString = command.replace('$TXT', `<<EOF\n${text}\nEOF`);
 
 					exec(commandString, (error, stdout, stderr) => {
 						if (error) {
